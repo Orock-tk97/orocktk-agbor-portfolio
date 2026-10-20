@@ -1,0 +1,15 @@
+<div id="project-modal" class="hidden fixed inset-0 z-[70] items-center justify-center p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+  <div class="modal-pop relative w-full max-w-sm bg-lightSurface dark:bg-darkSurface border border-lightMuted dark:border-darkSubtle rounded-2xl p-8 text-center shadow-glow">
+    <button id="modal-close" type="button" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-lightSubtle dark:hover:bg-darkSubtle flex items-center justify-center transition">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <div class="w-12 h-12 mx-auto rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 flex items-center justify-center mb-4 shadow-solidBtn"><i class="fa-solid fa-hammer" aria-hidden="true"></i></div>
+    <p class="font-mono text-xs text-indigo-500 uppercase tracking-wider mb-1">Coming soon</p>
+    <h2 id="modal-title" class="text-lg font-bold text-slate-900 dark:text-white">Project</h2>
+    <p class="mt-5 font-serif text-5xl text-slate-900 dark:text-white"><span id="modal-pct">0</span>%<span class="font-sans text-sm text-slate-500 dark:text-slate-400 ml-2">complete</span></p>
+    <div class="mt-4 w-full h-2 rounded-full bg-lightSubtle dark:bg-darkSubtle overflow-hidden"><div id="modal-bar" class="h-full w-0 rounded-full bg-accent-gradient"></div></div>
+    <p class="text-xs text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">Work is in progress. This project will be published here soon.</p>
+    <button id="modal-done" type="button" class="mt-6 inline-flex items-center justify-center bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold px-6 py-2.5 rounded-full text-xs shadow-solidBtn hover:scale-105 transition">Back to projects</button>
+  </div>
+</div>

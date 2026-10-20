@@ -1,0 +1,52 @@
+---
+import { site } from "../data/site";
+const social = [
+  { href: site.linkedin, label: "LinkedIn", icon: "fa-linkedin-in" },
+  { href: site.github, label: "GitHub", icon: "fa-github" },
+  { href: site.twitter, label: "X (Twitter)", icon: "fa-x-twitter" },
+];
+---
+<section id="home" aria-labelledby="hero-title" class="relative h-screen min-h-[720px] w-full flex flex-col justify-between overflow-hidden border-b border-lightMuted dark:border-darkSubtle/60 pt-20">
+  <div class="absolute inset-0 z-0">
+    <!-- Dark: /public/Dport.png   Light: /public/portfolio.png -->
+    <img src="/images/Dport.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" class="hidden dark:block w-full h-full object-cover object-center" />
+    <img src="/images/portfolio.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" class="dark:hidden w-full h-full object-cover object-center" />
+    <div class="absolute inset-y-0 left-0 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-gradient-to-r from-lightCanvas via-lightCanvas/80 to-transparent dark:from-darkCanvas dark:via-darkCanvas/90 dark:to-transparent"></div>
+    <div class="absolute inset-y-0 right-0 w-1/4 md:w-1/6 bg-gradient-to-l from-lightCanvas to-transparent dark:from-darkCanvas dark:to-transparent"></div>
+    <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-lightCanvas to-transparent dark:from-darkCanvas dark:to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-lightCanvas to-transparent dark:from-darkCanvas dark:to-transparent"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 w-full my-auto py-12">
+    <div class="hero-in max-w-2xl space-y-4">
+      <p class="inline-block text-xs font-mono uppercase tracking-widest font-bold text-slate-900 dark:text-white bg-white/90 dark:bg-darkSurface/90 px-3.5 py-1.5 rounded-full border border-slate-900/20 dark:border-white/20 shadow-subtle backdrop-blur-sm">{site.role}</p>
+
+      <h1 id="hero-title" class="font-sans text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-[1.1] flex flex-col gap-1">
+        <span>OROCKTAKANG</span>
+        <span class="gradient-text font-serif italic font-normal tracking-normal lowercase text-4xl sm:text-5xl lg:text-6xl">agbor</span>
+      </h1>
+
+      <p class="text-slate-900 dark:text-slate-100 text-base sm:text-lg font-medium max-w-md pt-1 min-h-[3.5rem] sm:min-h-[4rem]">
+        <span id="tw-text">Building interpretable machine learning models and dependable software.</span><span class="tw-caret" aria-hidden="true"></span>
+      </p>
+
+      <div class="pt-6 flex flex-wrap items-center gap-4">
+        <a href="#projects" class="cta-pulse inline-flex items-center justify-center bg-slate-900 hover:bg-black text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-900 font-bold px-8 py-3.5 rounded-full transition-all duration-200 shadow-solidBtn text-xs tracking-wider uppercase border-2 border-slate-900 dark:border-white hover:scale-105">View Projects</a>
+        <a href="/my-resume.pdf" download="Resume.pdf" rel="noopener" class="inline-flex items-center justify-center bg-white/90 dark:bg-darkSurface/90 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 text-slate-900 dark:text-white font-bold px-8 py-3.5 rounded-full transition-all duration-200 shadow-solidBtn text-xs tracking-wider uppercase border-2 border-slate-900 dark:border-white hover:scale-105 backdrop-blur-sm">Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-12 pb-8 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      {social.map((s) => (
+        <a href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel="noopener me" aria-label={s.label} class="w-9 h-9 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:scale-110 transition-transform shadow-solidBtn text-xs">
+          <i class={`fa-brands ${s.icon}`} aria-hidden="true"></i>
+        </a>
+      ))}
+    </div>
+    <a href="#projects" class="hidden sm:flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:opacity-80 transition-opacity">
+      <span>Scroll Down</span><i class="fa-solid fa-arrow-down text-xs animate-bounce" aria-hidden="true"></i>
+    </a>
+  </div>
+</section>

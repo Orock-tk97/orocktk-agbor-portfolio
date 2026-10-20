@@ -1,0 +1,31 @@
+---
+import { site, nav } from "../data/site";
+---
+<header class="fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-4 flex items-center justify-between bg-lightCanvas/80 dark:bg-darkCanvas/80 backdrop-blur-md border-b border-lightMuted dark:border-darkSubtle/60 transition-colors duration-300">
+  <a href="#home" class="flex items-center gap-3 group" aria-label={`${site.name} – home`}>
+    <span class="w-9 h-9 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-serif italic text-base flex items-center justify-center font-bold shadow-solidBtn group-hover:scale-105 transition-transform">OA</span>
+    <span class="font-bold text-slate-900 dark:text-white text-sm tracking-tight">{site.name}</span>
+  </a>
+
+  <nav aria-label="Primary" class="hidden md:flex items-center space-x-8 text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-wider">
+    {nav.map((l) => <a href={l.href} class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">{l.label}</a>)}
+  </nav>
+
+  <div class="flex items-center gap-3 sm:gap-4">
+    <button id="theme-toggle" type="button" aria-label="Toggle theme" class="w-9 h-9 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:scale-105 transition-transform shadow-solidBtn text-xs">
+      <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
+      <i class="fa-solid fa-sun hidden dark:inline text-amber-500" aria-hidden="true"></i>
+    </button>
+    <a href="#contact" class="cta-pulse hidden sm:inline-flex items-center justify-center bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold px-5 py-2.5 rounded-full transition shadow-solidBtn text-xs tracking-tight hover:scale-105">Get In Touch</a>
+    <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden w-9 h-9 rounded-full border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white flex items-center justify-center text-sm">
+      <i id="menu-icon" class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-lightCanvas dark:bg-darkCanvas border-b border-lightMuted dark:border-darkSubtle/60 px-6 py-4">
+    <nav aria-label="Mobile" class="flex flex-col text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider">
+      {nav.map((l) => <a href={l.href} class="py-3 border-b border-lightMuted dark:border-darkSubtle">{l.label}</a>)}
+      <a href="#contact" class="mt-4 inline-flex items-center justify-center bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold px-5 py-3 rounded-full text-xs tracking-tight normal-case">Get In Touch</a>
+    </nav>
+  </div>
+</header>

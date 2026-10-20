@@ -1,0 +1,40 @@
+---
+import { site, nav } from "../data/site";
+const links = [
+  { href: "#contact", label: "Contact" },
+];
+const connect = [
+  { href: site.linkedin, label: "LinkedIn" },
+  { href: site.demo, label: "Hugging Face Demo" },
+  { href: site.github, label: "GitHub" },
+  { href: site.twitter, label: "X / Twitter" },
+];
+---
+<footer class="bg-lightSubtle dark:bg-darkCanvas border-t border-lightMuted dark:border-darkSubtle py-12 text-slate-600 dark:text-slate-400 text-xs mt-auto transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-lightMuted dark:border-darkSubtle">
+      <div class="md:col-span-2 space-y-3">
+        <div class="flex items-center space-x-2">
+          <span class="w-6 h-6 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-serif italic text-xs flex items-center justify-center font-bold">OA</span>
+          <span class="font-semibold text-slate-900 dark:text-white text-sm">{site.name}</span>
+        </div>
+        <p class="max-w-sm leading-relaxed">Software engineer and machine learning / AI engineer building practical ML solutions and reliable software.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2 class="text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider mb-3">Navigation</h2>
+        <ul class="space-y-2">{[...nav, ...links].map((l) => <li><a href={l.href} class="hover:text-indigo-500 transition">{l.label}</a></li>)}</ul>
+      </nav>
+      <div>
+        <h2 class="text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider mb-3">Connect</h2>
+        <ul class="space-y-2">{connect.map((l) => <li><a href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel="noopener me" class="hover:text-indigo-500 transition">{l.label}</a></li>)}</ul>
+      </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-4">
+      <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-slate-800 dark:hover:text-slate-200 transition">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-800 dark:hover:text-slate-200 transition">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
